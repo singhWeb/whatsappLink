@@ -285,12 +285,12 @@
             <h2>Contact Number</h2>
             <p>Enter the Mobile Number</p>
             <p><input type="number" class="textBox" id="varNumber" name="varNumber"></p>
-            <p><button class="button" onclick='javascript:updateText()'>Send Message</button></p>
+            <p><button class="button" onclick="document.location='javascript:updateText()'">Send Message</button></p>
         </div>
     </div> 
     <div style="text-align: center;">
         <!-- <p><a href="" id=lnk target="_blank" style="width: auto;"></a></p> -->
-        <p type="text" id="output">Test</p>
+        <p type="text" id="output"></p>
         <p></p>
     </div>   
     <script>
@@ -301,18 +301,19 @@
             varNumber = varNumber.replace(" ", "");
           }
             let dataOut;
-//             if(varNumber.indexOf("+") == 0) {
+            if(varNumber.indexOf("+") == 0) {
                 varNumber = varNumber.substr(varNumber.length - 10); 
                 dataOut = varNumber;
                 //var lnk = document.getElementById('lnk');
                 //lnk.href = "https://api.whatsapp.com/send/?phone=%2B" + varCode + varNumber + "&text&type=phone_number&app_absent=0";
                 //lnk.href = "https://wa.me/+" + varCode + varNumber; 
                 //lnk.innerHTML = lnk.href;
-//             }
-//             else {
-//                dataOut = "Error";
-//             }
-            document.getElementById("output").innerHTML = dataOut;
+                return "https://api.whatsapp.com/send/?phone=%2B" + varCode + varNumber + "&text&type=phone_number&app_absent=0";
+            }
+            else {
+                document.getElementById("output").innerHTML = "Error";
+                return 0;
+            }
         }
       </script>
 </body>
