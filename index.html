@@ -301,16 +301,22 @@
             varNumber = varNumber.replace(" ", "");
           }
             let dataOut;
-            if(varNumber.indexOf("+") == 0) {
+            if(varNumber.indexOf("+") == 0 && varNumber.length > 10) {
                 varNumber = varNumber.substr(varNumber.length - 10); 
                 dataOut = varNumber;
                 //var lnk = document.getElementById('lnk');
                 //lnk.href = "https://api.whatsapp.com/send/?phone=%2B" + varCode + varNumber + "&text&type=phone_number&app_absent=0";
                 //lnk.href = "https://wa.me/+" + varCode + varNumber; 
                 //lnk.innerHTML = lnk.href;
+                document.getElementById("output").innerHTML = "Done";
                 return "https://api.whatsapp.com/send/?phone=%2B" + varCode + varNumber + "&text&type=phone_number&app_absent=0";
             }
-            else {
+            else if (varNumber.length == 10){
+                dataOut = varNumber;
+                document.getElementById("output").innerHTML = "Done 10";
+                return "https://api.whatsapp.com/send/?phone=%2B" + varCode + varNumber + "&text&type=phone_number&app_absent=0";
+            }
+             else {   
                 document.getElementById("output").innerHTML = "Error";
                 return 0;
             }
