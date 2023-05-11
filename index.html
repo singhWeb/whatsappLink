@@ -290,7 +290,7 @@
     </div> 
     <div style="text-align: center;">
         <!-- <p><a href="" id=lnk target="_blank" style="width: auto;"></a></p> -->
-        <p type="text" id="dataOut">Test</p>
+        <p type="text" id="output">Test</p>
         <p></p>
     </div>   
     <script>
@@ -300,18 +300,19 @@
           for (let i = 0; i <= varNumber.length; i++) {
             varNumber = varNumber.replace(" ", "");
           }
-            //if(varNumber.indexOf("+") == 0) {
+            let dataOut
+            if(varNumber.indexOf("+") == 0) {
                 varNumber = varNumber.substr(varNumber.length - 10); 
                 dataOut = varNumber;
                 //var lnk = document.getElementById('lnk');
                 //lnk.href = "https://api.whatsapp.com/send/?phone=%2B" + varCode + varNumber + "&text&type=phone_number&app_absent=0";
                 //lnk.href = "https://wa.me/+" + varCode + varNumber; 
                 //lnk.innerHTML = lnk.href;
-            //}
-            //else {
-             //   dataOut = "Error";
-            //}
-        
+            }
+            else {
+               dataOut = "Error";
+            }
+            document.getElementById("output").innerHTML = dataOut;
         }
       </script>
 </body>
