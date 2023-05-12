@@ -301,10 +301,8 @@
             varNumber = varNumber.replace(" ", "");
           }
           varNumber = varNumber.substr(varNumber.length - 10); 
-        var lnk = document.getElementById('lnk');
-        lnk.href = "https://api.whatsapp.com/send/?phone=%2B" + varCode + varNumber + "&text&type=phone_number&app_absent=0";
-        //lnk.href = "https://wa.me/+" + varCode + varNumber; 
-        lnk.innerHTML = lnk.href;
+        var openBtn = "https://api.whatsapp.com/send/?phone=%2B" + varCode + varNumber + "&text&type=phone_number&app_absent=0";
+        window.open(openBtn);
         }
       </script>
 </body>
